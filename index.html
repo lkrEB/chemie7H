@@ -115,7 +115,7 @@ async function chemPasswordLogin(){
  if(!chemClient){chemAuthStatus('Supabase niet bereikbaar.');return}
  const email=document.getElementById('loginEmail').value.trim().toLowerCase();
  const password=document.getElementById('loginPassword').value;
- if(!/^[^\s@]+@pti\.be$/.test(email)){chemAuthStatus('Gebruik je schoolmailadres dat eindigt op @pti.be.');return}
+if(!/^[^\s@]+@(leerling\.)?pti\.be$/.test(email)){chemAuthStatus('Gebruik je schoolmailadres (@pti.be of @leerling.pti.be).');return}
  chemAuthStatus('Aanmelden…');
  const {error}=await chemClient.auth.signInWithPassword({email,password});
  document.getElementById('loginPassword').value='';
